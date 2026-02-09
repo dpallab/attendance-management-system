@@ -41,13 +41,15 @@ const AdminDashboard = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!token) {
-      navigate("/admin-login");
-      return;
-    }
+    // if (!token) {
+    //   navigate("/admin-login");
+    //   return;
+    // }
 
+    console.log(token);
     loadData();
   }, [token, navigate]);
+
 
   const loadData = async () => {
     try {
@@ -56,7 +58,7 @@ const AdminDashboard = () => {
         axios.get("http://localhost:4000/api/all-employees"),
         axios.get("http://localhost:4000/api/all-managers"),
       ]);
-
+      // console.log(loadData())
       setEmployees(empRes.data);
       setManagers(mgrRes.data);
     } catch (error) {
@@ -66,7 +68,7 @@ const AdminDashboard = () => {
       setLoading(false);
     }
   };
-
+//  loadData();
   const deleteEmployee = async (id) => {
     if (!window.confirm("Are you sure to remove this employee?")) return;
 

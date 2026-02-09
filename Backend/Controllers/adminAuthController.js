@@ -60,7 +60,6 @@ exports.login = async (req, res) => {
 
 // new
 
-
 // 🔹 Get all employees
 exports.getAllEmployees = async (req, res) => {
   try {
@@ -100,3 +99,7 @@ exports.deleteManager = async (req, res) => {
     res.status(500).json({ message: "Failed to delete manager" });
   }
 };
+
+
+
+

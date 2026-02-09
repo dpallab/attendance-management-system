@@ -10,21 +10,47 @@ import ManagerLogin from "./components/manager/managerLogin.jsx";
 import ManagerDashboard from "./components/manager/managerDashboard.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import PageNotFound from "./components/PageNotFound.jsx";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
 
       <Routes>
-        <Route path="/" element={<PrivateRoute role="employee"><EmployeeLogin /></PrivateRoute>} />
+        <Route path="/" element={<PrivateRoute ><EmployeeLogin /></PrivateRoute>} />
         <Route path="/employee-signup" element={<PrivateRoute><EmployeeSignup /></PrivateRoute>} />
-        <Route path="/employee-dashboard" element={<EmployeeDashboard />} />
+        {/* <Route path="/employee-dashboard" element={<EmployeeDashboard />} /> */}
+        <Route
+          path="/employee-dashboard"
+          element={
+            <ProtectedRoute role="employee">
+              <EmployeeDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/admin-login" element={<PrivateRoute role="admin"><AdminLogin /></PrivateRoute>} />
-        <Route path="/admin-dashboard" element={<AdminDashboard />} />
+        <Route path="/admin-login" element={<PrivateRoute><AdminLogin /></PrivateRoute>} />
+        {/* <Route path="/admin-dashboard" element={<AdminDashboard />} /> */}
+        <Route
+          path="/admin-dashboard"
+          element={
+            <ProtectedRoute role="admin">
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
 
-        <Route path="/manager-login" element={<PrivateRoute role="manager"><ManagerLogin /></PrivateRoute>} />
-        <Route path="/manager-dashboard" element={<ManagerDashboard />} />
+
+        <Route path="/manager-login" element={<PrivateRoute ><ManagerLogin /></PrivateRoute>} />
+        {/* <Route path="/manager-dashboard" element={<ManagerDashboard />} /> */}
+        <Route
+          path="/manager-dashboard"
+          element={
+            <ProtectedRoute role="manager">
+              <ManagerDashboard />
+            </ProtectedRoute>
+          }
+        />
 
         <Route path="*" element={<PageNotFound />} />
       </Routes>

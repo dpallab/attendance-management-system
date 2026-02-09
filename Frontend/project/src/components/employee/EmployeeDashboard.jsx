@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import "../../CSS/EmployeeDashboard.css";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
@@ -14,11 +14,11 @@ const EmployeeDashboard = () => {
   const navigate = useNavigate();
   const token = Cookies.get("token");
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/");
-    }
-  }, [token, navigate]);
+  // useEffect(() => {
+  //   if (!token) {
+  //     navigate("/");
+  //   }
+  // }, [token, navigate]);
 
   const verifyToken = token ? JSON.parse(atob(token.split(".")[1])) : null;
   const userName = verifyToken ? verifyToken.name : '';
