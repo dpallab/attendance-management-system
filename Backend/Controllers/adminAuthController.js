@@ -60,7 +60,7 @@ exports.login = async (req, res) => {
 
 // new
 
-// 🔹 Get all employees
+//  Get all employees
 exports.getAllEmployees = async (req, res) => {
   try {
     const employees = await EmployeeUser.find().select("-password");
@@ -70,7 +70,7 @@ exports.getAllEmployees = async (req, res) => {
   }
 };
 
-// 🔹 Get all managers
+//  Get all managers
 exports.getAllManagers = async (req, res) => {
   try {
     const managers = await ManagerUser.find().select("-password");
@@ -80,7 +80,7 @@ exports.getAllManagers = async (req, res) => {
   }
 };
 
-// 🔹 Delete employee
+//  Delete employee
 exports.deleteEmployee = async (req, res) => {
   try {
     await EmployeeUser.findByIdAndDelete(req.params.id);
@@ -90,7 +90,7 @@ exports.deleteEmployee = async (req, res) => {
   }
 };
 
-// 🔹 Delete manager
+//  Delete manager
 exports.deleteManager = async (req, res) => {
   try {
     await ManagerUser.findByIdAndDelete(req.params.id);

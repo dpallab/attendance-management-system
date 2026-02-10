@@ -31,10 +31,10 @@ const EmployeeLogin = () => {
       );
 
       if (res.status === 200) {
-        // ✅ Store JWT token
+        //  Store JWT token
         Cookies.set("token", res.data.token);
 
-        // ✅ Store role in localStorage
+        //  Store role in localStorage
         localStorage.setItem("role", "employee");
 
         alert(res.data.message);

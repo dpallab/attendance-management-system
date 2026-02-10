@@ -3,7 +3,7 @@ const Attendance = require("../Models/attendance");
 // today date helper
 // const todayDate = () => new Date().toISOString().split("T")[0];
 
-// ✅ SUBMIT ATTENDANCE
+// SUBMIT ATTENDANCE
 exports.submitAttendance = async (req, res) => {
   try {
     const { name, location, punchIn, punchOut } = req.body;
@@ -54,7 +54,7 @@ exports.getAllAttendance = async (req, res) => {
 };
 
 /**
- * 📌 Delete attendance by ID (Manager)
+ *  Delete attendance by ID (Manager)
  */
 exports.deleteAttendance = async (req, res) => {
   try {
