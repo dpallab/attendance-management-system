@@ -11,7 +11,7 @@ import ManagerDashboard from "./components/manager/managerDashboard.jsx";
 import PrivateRoute from "./components/PrivateRoute";
 import PageNotFound from "./components/PageNotFound.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import AttendanceCounted from "./components/employee/AttendanceCounted.jsx";
+// import AttendanceCounted from "./components/employee/AttendanceCounted.jsx";
 function App() {
   return (
     <BrowserRouter>
@@ -52,10 +52,10 @@ function App() {
             </ProtectedRoute>
           }
         />
-        <Route path="/attendance" element={<AttendanceCounted />} />
         <Route path="*" element={<PageNotFound />} />
 
       </Routes>
+
 
 
     </BrowserRouter>
