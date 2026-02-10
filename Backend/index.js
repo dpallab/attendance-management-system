@@ -6,7 +6,7 @@ const cors = require('cors');
 const employeeRoutes = require('./Routes/employeeRoutes.js');
 const managerRoutes = require('./Routes/managerRoutes.js');
 const adminRoutes = require('./Routes/adminRoutes.js');
-// const attendanceRoutes = require("./Routes/attendanceRoutes");
+const attendanceRoutes = require("./Routes/attendanceRoutes");
 const dotenv= require('dotenv');
 dotenv.config();
 // const cookieParser= require('cookie-parser');
@@ -28,14 +28,10 @@ app.use(cors());
 app.use('/api', employeeRoutes);
 app.use('/api', managerRoutes);
 app.use('/api', adminRoutes);
-// app.use("/api", attendanceRoutes);
+app.use("/api", attendanceRoutes);
 
 const port = process.env.PORT || 4000;
 app.listen(port, () => {
     console.log("----Server Running on Port Number:", port,"----");
 })
-
-
-
-
 
